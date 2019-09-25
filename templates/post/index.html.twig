@@ -2,5 +2,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>{{ content }}</h1>
+    <h1>All of our posts:</h1>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <strong>{{ post.title }}</strong>
+                <p>{{ post.content }}</p>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
