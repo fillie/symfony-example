@@ -44,6 +44,6 @@ USER www
 # Install PHP dependencies
 RUN composer install
 
-# Expose port 8080 and start php-fpm server
-EXPOSE 8080
+# Expose port 80 and start php-fpm server
+EXPOSE 80
 CMD ["php-fpm"]
