@@ -16,14 +16,18 @@ RUN apt-get update && apt-get install -y \
     nano \
     unzip \
     git \
-    curl
+    curl \
+    nodejs
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Install symfony
+# Install Symfony CLI (used for generators and commands e.g)
 RUN curl -sS https://get.symfony.com/cli/installer | bash
 RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+
+# Install Yarn
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
 # Add user for laravel application
 RUN groupadd -g 1000 www
