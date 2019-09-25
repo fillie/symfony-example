@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Post;
 use App\Service\PostService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -13,10 +14,10 @@ class PostController extends AbstractController
      */
     public function index(PostService $postService)
     {
-        $content = $postService->getPost();
+        $posts = $this->getDoctrine()->getRepository(Post::class)->findAll();
 
         return $this->render('post/index.html.twig', [
-            'content' => $content,
+            'posts' => $posts,
         ]);
     }
 }
