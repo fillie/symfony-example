@@ -41,6 +41,9 @@ COPY --chown=www:www . /var/www
 # Change current user to www
 USER www
 
+# Install PHP dependencies
+RUN composer install
+
 # Expose port 8080 and start php-fpm server
 EXPOSE 8080
 CMD ["php-fpm"]
