@@ -2,13 +2,18 @@
 
 namespace App\Controller;
 
+use App\Service\PostService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PostController extends AbstractController
 {
-    public function index()
+    /**
+     * @param PostService $postService
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function index(PostService $postService)
     {
-        $content = random_int(0, 100);
+        $content = $postService->getPost();
 
         return $this->render('post/index.html.twig', [
             'content' => $content,
