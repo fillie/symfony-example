@@ -17,7 +17,8 @@ RUN apt-get update && apt-get install -y \
     unzip \
     git \
     curl \
-    nodejs
+    nodejs \
+    wget
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -29,7 +30,7 @@ RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 # Install Yarn
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
-# Add user for laravel application
+# Add user for symfony application
 RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
