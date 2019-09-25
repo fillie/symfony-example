@@ -12,7 +12,7 @@ class PostController extends AbstractController
      * @param PostService $postService
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(PostService $postService)
+    public function index()
     {
         $posts = $this->getDoctrine()->getRepository(Post::class)->findAll();
 
